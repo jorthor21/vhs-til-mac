@@ -1,0 +1,47 @@
+name: Bygg VHS til Mac
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bygg:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Vis verktøy
+        run: |
+          sw_vers
+          xcodebuild -version
+          swift --version
+
+      - name: Bygg app (universal arm64 + x86_64)
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          if [[ "$GITHUB_REF_TYPE" != "tag" ]]; then VERSION="0.2.0-dev"; fi
+          chmod +x scripts/bygg-app.sh
+          scripts/bygg-app.sh "$VERSION"
+
+      - name: Last opp som byggeartefakt
+        uses: actions/upload-artifact@v4
+        with:
+          name: VHS-til-Mac
+          path: build/VHS-til-Mac-*.zip
+          retention-days: 30
+
+      - name: Publiser utgivelse (kun for versjonstagger)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/VHS-til-Mac-*.zip
+          body: |
+            Last ned ZIP-filen under, pakk den ut og flytt «VHS til Mac» til Programmer.
+            Første gang: høyreklikk → Åpne, eller Systeminnstillinger → Personvern og sikkerhet → «Åpne likevel».
+            Appen er ad-hoc-signert, ikke notarisert av Apple.

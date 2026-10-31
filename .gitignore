@@ -1,0 +1,6 @@
+build/
+.build/
+.swiftpm/
+Tests/c/test_core
+*.dSYM
+.DS_Store

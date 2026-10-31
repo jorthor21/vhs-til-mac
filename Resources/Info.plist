@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>nb</string>
+    <key>CFBundleDisplayName</key>
+    <string>VHS til Mac</string>
+    <key>CFBundleName</key>
+    <string>VHS til Mac</string>
+    <key>CFBundleExecutable</key>
+    <string>VHSTilMac</string>
+    <key>CFBundleIdentifier</key>
+    <string>io.github.vhs-til-mac</string>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>__VERSION__</string>
+    <key>CFBundleVersion</key>
+    <string>__BUILD__</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>12.0</string>
+    <key>LSApplicationCategoryType</key>
+    <string>public.app-category.video</string>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Brukes bare hvis du velger «Annen lydinngang på Mac-en» som lydkilde for VHS-opptaket.</string>
+    <key>NSHumanReadableCopyright</key>
+    <string>Fri programvare under GPL-2.0-or-later. Inneholder libusb (LGPL-2.1).</string>
+</dict>
+</plist>
